@@ -1,0 +1,2 @@
+# Beschreibung
+Es sollte eine neue App für das Obserwando System entwickelt werden, welche dem Fahrer es ermöglicht den Tank Füllstand anzugeben und so an den Obserwando Server zu übertragen. Diese App wird nicht mehr weiterentwickelt und ist nicht mehr zu finden. Da es die App leider nicht mehr gibt, gibt es auch keine Bilder.

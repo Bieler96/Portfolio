@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/Bieler96/Portfolio/utils"
+	"github.com/Bieler96/Portfolio/utils/web"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -25,13 +26,20 @@ func main() {
 	if err := client.Ping(ctx, readpref.Primary()); err != nil {
 		log.Fatal(err)
 	}
+
+	createDB(*client)
+	resetDB(ctx)
+	initDB(ctx)
+
+	// start webserver
+	web.Webserver(ctx)
 }
 
 // create the collections for the database
 func createDB(client mongo.Client) {
-	utils.DB_NavEntries = client.Database("mydb").Collection("nav")
-	utils.DB_Projects = client.Database("mydb").Collection("projects")
-	utils.DB_Services = client.Database("mydb").Collection("services")
+	utils.DB_NavEntries = client.Database("db").Collection("nav")
+	utils.DB_Projects = client.Database("db").Collection("projects")
+	utils.DB_Services = client.Database("db").Collection("services")
 }
 
 // reseted the database collections

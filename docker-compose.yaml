@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-    gomdb:
-      container_name: gomdb
+    mongodb_container:
+      container_name: db
       image: mongo:latest
       restart: always
       environment:
@@ -11,6 +11,6 @@ services:
       ports:
         - "27017:27017"
       volumes:
-        - gomdb:/data/db
+        - mongodb_data_container:/data/db
 volumes:
-    mdbdata:
+    mongodb_data_container:

@@ -31,21 +31,21 @@ var DB_Projects *mongo.Collection
 
 // initialize data for the projects into the mongodb
 func InitProjectMongo(ctx context.Context) {
-	bluetoothtrackerImages := []string{}
-	tankappImages := []string{}
+	// bluetoothtrackerImages := []string{""}
+	tankappImages := []string{"tankapp1.jpg"}
 	zeitappImages := []string{"zeitapp1.jpg", "zeitapp2.jpg", "zeitapp3.jpg", "zeitapp4.jpg"}
-	todoappImages := []string{}
+	todoappImages := []string{"todoapp1.jpg", "todoapp2.jpg", "todoapp3.jpg"}
 	bsvImages := []string{"bsv1.jpg", "bsv2.png"}
 	modheadImages := []string{"modhead1.png", "modhead2.png", "modhead3.png", "modhead4.png", "modhead5.png"}
 	modcharacterImages := []string{"modcharacter1.png", "modcharacter2.png", "modcharacter3.png", "modcharacter4.png"}
-	plantaholicsImages := []string{}
+	plantaholicsImages := []string{"plantaholics1.jpg", "plantaholics2.jpg", "plantaholics3.jpg", "plantaholics4.jpg", "plantaholics5.jpg"}
 	zsphereImages := []string{"zsphere1.png", "zsphere2.png", "zsphere3.png"}
-	platformerengineImages := []string{}
+	platformerengineImages := []string{"platformerengine1.png", "platformerengine2.png", "platformerengine3.png", "platformerengine4.png"}
 	weingutImages := []string{"weingut1.jpg", "weingut2.png", "weingut3.png"}
-	arplakatImages := []string{}
+	// arplakatImages := []string{""}
 
 	entries := []interface{}{
-		bson.D{{"slug", "bluetoothtracker"}, {"title", "Obserwando Bluetooth Tracker"}, {"year", "2017"}, {"Type", "Entwicklung"}, {"client", "Rösler Software Technik"}, {"shortdesc", "Bluetooth Tracker"}, {"desc", getMarkdown("bluetoothtracker")}, {"cover", bluetoothtrackerImages[0]}, {"images", bluetoothtrackerImages}},
+		// bson.D{{"slug", "bluetoothtracker"}, {"title", "Obserwando Bluetooth Tracker"}, {"year", "2017"}, {"Type", "Entwicklung"}, {"client", "Rösler Software Technik"}, {"shortdesc", "Bluetooth Tracker"}, {"desc", getMarkdown("bluetoothtracker")}, {"cover", bluetoothtrackerImages[0]}, {"images", bluetoothtrackerImages}},
 		bson.D{{"slug", "tankapp"}, {"title", "Obserwando Tank App"}, {"year", "2018"}, {"Type", "Entwicklung"}, {"client", "Rösler Software Technik"}, {"shortdesc", ""}, {"desc", getMarkdown("tankapp")}, {"cover", tankappImages[0]}, {"images", tankappImages}},
 		bson.D{{"slug", "zeitapp"}, {"title", "Zeiterfassungs App"}, {"year", "2020"}, {"Type", "Entwicklung"}, {"client", "HS Harz"}, {"shortdesc", ""}, {"desc", getMarkdown("zeitapp")}, {"cover", zeitappImages[0]}, {"images", zeitappImages}},
 		bson.D{{"slug", "todoapp"}, {"title", "Todo WebApp"}, {"year", "2018"}, {"Type", "Entwicklung"}, {"client", "Privat"}, {"shortdesc", ""}, {"desc", getMarkdown("todoapp")}, {"cover", todoappImages[0]}, {"images", todoappImages}},
@@ -56,7 +56,7 @@ func InitProjectMongo(ctx context.Context) {
 		bson.D{{"slug", "zsphere"}, {"title", "ZSphere"}, {"year", "2022"}, {"Type", "3D"}, {"client", "Privat"}, {"shortdesc", "ZSpeheres in Blender with Geo Nodes"}, {"desc", getMarkdown("zsphere")}, {"cover", zsphereImages[0]}, {"images", zsphereImages}},
 		bson.D{{"slug", "platformerengine"}, {"title", "Platformer Engine"}, {"year", "2021"}, {"Type", "Game Dev"}, {"client", "Privat"}, {"shortdesc", ""}, {"desc", getMarkdown("platformerengine")}, {"cover", platformerengineImages[0]}, {"images", platformerengineImages}},
 		bson.D{{"slug", "weingut"}, {"title", "Weingut"}, {"year", "2020"}, {"Type", "Gestaltung"}, {"client", "HS Harz"}, {"shortdesc", "Corporate Design für ein Weingut"}, {"desc", getMarkdown("weingut")}, {"cover", weingutImages[0]}, {"images", weingutImages}},
-		bson.D{{"slug", "arplakat"}, {"title", "AR Plakat Serie"}, {"year", "2022"}, {"Type", "Gestaltung"}, {"client", "HS Harz"}, {"shortdesc", ""}, {"desc", getMarkdown("arplakat")}, {"cover", arplakatImages}, {"images", arplakatImages}},
+		// bson.D{{"slug", "arplakat"}, {"title", "AR Plakat Serie"}, {"year", "2022"}, {"Type", "Gestaltung"}, {"client", "HS Harz"}, {"shortdesc", ""}, {"desc", getMarkdown("arplakat")}, {"cover", arplakatImages[0]}, {"images", arplakatImages}},
 	}
 
 	_, err := DB_Projects.InsertMany(ctx, entries)

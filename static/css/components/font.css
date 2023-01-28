@@ -1,0 +1,23 @@
+.dabi-font {
+    font-size: var(--global-font-size);
+}
+
+.dabi-font-small {
+    font-size: var(--global-font-size-small);
+}
+
+.dabi-font-medium {
+    font-size: var(--global-font-size-medium);
+}
+
+.dabi-font-large {
+    font-size: var(--global-font-size-large);
+}
+
+.dabi-font-xlarge {
+    font-size: var(--global-font-size-xlarge);
+}
+
+.dabi-font-2xlarge {
+    font-size: var(--global-font-size-2xlarge);
+}

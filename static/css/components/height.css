@@ -1,0 +1,65 @@
+:root {
+    --height-small-height: 150px;
+    --height-medium-height: 300px;
+    --height-large-height: 450px;
+}
+
+.dabi-height-1-1 {
+    height: 100%;
+}
+
+.dabi-height-viewport {
+    min-height: 100vh;
+}
+
+.dabi-height-viewport-2 {
+    min-height: 200vh;
+}
+
+.dabi-height-viewport-3 {
+    min-height: 300vh;
+}
+
+.dabi-height-viewport-4 {
+    min-height: 400vh;
+}
+
+.dabi-height-small {
+    height: var(--height-small-height);
+}
+
+.dabi-height-medium {
+    height: var(--height-medium-height);
+}
+
+.dabi-height-large {
+    height: var(--height-large-height);
+}
+
+.dabi-height-max-small {
+    max-height: var(--height-small-height);
+}
+
+.dabi-height-max-medium {
+    max-height: var(--height-medium-height);
+}
+
+.dabi-height-max-large {
+    max-height: var(--height-large-height);
+}
+
+.dabi-height-1-rem{
+    height: 1rem;
+}
+
+.dabi-height-2-rem{
+    height: 2rem;
+}
+
+.dabi-height-3-rem{
+    height: 3rem;
+}
+
+.dabi-height-4-rem{
+    height: 4rem;
+}

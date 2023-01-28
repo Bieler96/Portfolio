@@ -1,0 +1,11 @@
+:root {
+    --column-padding: var(--global-padding);
+    --column-padding-l: var(--global-padding-medium);
+
+    --column-divider-rule-color: var(--global-border);
+    --column-divider-rule-width: 1px;
+}
+
+[class*='dabi-column-'] {
+    column-gap: var(--column-padding);
+}

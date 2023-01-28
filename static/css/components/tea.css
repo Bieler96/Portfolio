@@ -1,0 +1,145 @@
+/* trigger events animations */
+:root {
+    --tea-transition-duration: 0.3s;
+}
+
+.dabi-tea.dabi-tea-fade-in {
+    opacity: 0;
+}
+
+.dabi-tea.dabi-tea-fade-in.dabi-tea-active {
+    animation: opac var(--tea-transition-duration);
+    opacity: 1;
+}
+
+@keyframes opac {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dabi-tea.dabi-tea-top,
+.dabi-tea-top {
+    top: -300px;
+    opacity: 0;
+}
+
+.dabi-tea.dabi-tea-top.dabi-tea-active,
+.dabi-tea-right.dabi-tea-active {
+    position: relative;
+    animation: animatetop var(--tea-transition-duration);
+    display: block;
+    top: 0;
+    opacity: 1;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.dabi-tea.dabi-tea-left {
+    left: -300px;
+    opacity: 0;
+}
+
+.dabi-tea.dabi-tea-left.dabi-tea-active {
+    position: relative;
+    animation: animateleft var(--tea-transition-duration);
+    left: 0;
+    opacity: 1;
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0;
+    }
+
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.dabi-tea.dabi-tea-right,
+.dabi-tea-right {
+    right: -300px;
+    opacity: 0;
+}
+
+.dabi-tea.dabi-tea-right.dabi-tea-active,
+.dabi-tea-right.dabi-tea-active {
+    position: relative;
+    animation: animateright var(--tea-transition-duration);
+    right: 0;
+    opacity: 1;
+}
+
+@keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0;
+    }
+
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+.dabi-tea.dabi-tea-bottom,
+.dabi-tea-bottom {
+    bottom: -300px;
+    opacity: 0;
+}
+
+.dabi-tea.dabi-tea-bottom.dabi-tea-active,
+.dabi-tea-bottom.dabi-tea-active {
+    position: relative;
+    animation: animatebottom var(--tea-transition-duration);
+    bottom: 0;
+    opacity: 1;
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+.dabi-tea.dabi-tea-zoom {
+    transform: scale(0);
+}
+
+.dabi-tea.dabi-tea-zoom.dabi-tea-active {
+    animation: animatezoom var(--tea-transition-duration);
+    transform: scale(1);
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}

@@ -1,0 +1,29 @@
+.dabi-container{
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+    .dabi-container{
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .dabi-container{
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992) {
+    .dabi-container{
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .dabi-container{
+        max-width: 1260px;
+    }
+}

@@ -1,0 +1,193 @@
+:root {
+    --button-hover-box-shadow: var(--global-large-box-shadow);
+
+    --button-default-color: var(--global-color);
+    --button-default-background: var(--global-muted-background);
+
+    --button-primary-color: var(--global-inverse-color);
+    --button-primary-background: var(--global-primary-background);
+
+    --button-secondary-color: var(--global-inverse-color);
+    --button-secondary-background: var(--global-secondary-background);
+
+
+    --button-default-box-shadow: var(--global-medium-box-shadow);
+    --button-default-hover-box-shadow: var(--global-large-box-shadow);
+
+    --button-default-header-border-width: var(--global-border-width);
+    --button-default-header-border: var(--global-border);
+
+    --button-default-footer-border-width: var(--global-border-width);
+    --button-default-footer-border: var(--global-border);
+
+    --button-primary-box-shadow: var(--global-medium-box-shadow);
+    --button-primary-hover-box-shadow: var(--global-large-box-shadow);
+
+    --button-secondary-box-shadow: var(--global-medium-box-shadow);
+    --button-secondary-hover-box-shadow: var(--global-large-box-shadow);
+}
+
+.dabi-button {
+    margin: 0;
+    font-size: var(--button-font-size);
+    font-weight: 700;
+    height: 36px;
+    line-height: 36px;
+    border-radius: var(--global-border-radius);
+    border: none;
+    outline: none;
+    display: inline-block;
+    padding: var(--button-padding-horizontal);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 150ms linear;
+    box-sizing: initial;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dabi-button.dabi-button-longer-transition {
+    transition: all 0.4s ease-in-out !important;
+}
+
+.dabi-button:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dabi-button span {
+    position: relative;
+    pointer-events: none;
+}
+
+.dabi-button-text {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.dabi-button-text:hover {
+    box-shadow: none !important;
+}
+
+.dabi-button-primary.dabi-button-text {
+    color: var(--button-primary-background) !important;
+}
+
+.dabi-button-primary.dabi-button-text:hover {
+    background-color: var(--global-primary-hover) !important;
+}
+
+.dabi-button-outline {
+    border: 2px solid;
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.dabi-button-outline:hover {
+    box-shadow: none !important;
+}
+
+.dabi-button-primary.dabi-button-outline {
+    border-color: var(--button-primary-background) !important;
+    color: var(--button-primary-background) !important;
+}
+
+.dabi-button-primary.dabi-button-outline:hover {
+    background-color: var(--global-primary-hover) !important;
+}
+
+.dabi-button-outline::before,
+.dabi-button-outline::after {
+    background: transparent;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+.dabi-button-outline,
+.dabi-button-outline::after {
+    transition: all 0.2s;
+}
+
+.dabi-button.dabi-button-default {
+    background-color: var(--button-default-background);
+    color: var(--button-default-color);
+}
+
+.dabi-button.dabi-button-default:hover {
+    box-shadow: 0 10px 15px -3px var(--button-default-background);
+}
+
+.dabi-button.dabi-button-white {
+    background-color: var(--global-white);
+    color: var(--button-primary-color);
+}
+
+.dabi-button.dabi-button-white:hover {
+    box-shadow: 0 10px 15px -3px var(--button-primary-background);
+}
+
+.dabi-button.dabi-button-primary {
+    background-color: var(--button-primary-background);
+    color: var(--button-primary-color);
+}
+
+.dabi-button.dabi-button-primary:hover {
+    box-shadow: 0 10px 15px -3px var(--button-primary-background);
+}
+
+.dabi-button.dabi-button-secondary {
+    background-color: var(--button-secondary-background);
+    color: var(--button-secondary-color);
+}
+
+.dabi-button.dabi-button-secondary:hover {
+    box-shadow: 0 10px 15px -3px var(--button-secondary-background);
+}
+
+
+.dabi-button.dabi-button-default:hover,
+.dabi-button.dabi-button-primary:hover,
+.dabi-button.dabi-button-secondary:hover {
+    filter: brightness(95%);
+}
+
+.dabi-button.dabi-button-hover:hover {
+    box-shadow: var(--button-hover-box-shadow);
+}
+
+.dabi-button.dabi-button-default.dabi-button-hover {
+    box-shadow: var(--button-default-box-shadow);
+}
+
+.dabi-button.dabi-button-default.dabi-button-hover:hover {
+    box-shadow: var(--button-default-box-shadow);
+}
+
+.dabi-button.dabi-button-primary.dabi-button-hover {
+    box-shadow: var(--button-primary-box-shadow);
+}
+
+.dabi-button.dabi-button-primary.dabi-button-hover:hover {
+    box-shadow: var(--button-primary-box-shadow);
+}
+
+.dabi-button.dabi-button-secondary.dabi-button-hover {
+    box-shadow: var(--button-secondary-box-shadow);
+}
+
+.dabi-button.dabi-button-secondary.dabi-button-hover:hover {
+    box-shadow: var(--button-secondary-box-shadow);
+}
+
+.dabi-button.dabi-block {
+    display: block;
+}
+
+.dabi-button.dabi-button-pill {
+    border-radius: 50px;
+}
+
+.dabi-button.dabi-button-no-shadow{
+    box-shadow: none;
+}

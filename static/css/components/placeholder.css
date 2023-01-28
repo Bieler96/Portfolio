@@ -1,0 +1,21 @@
+:root {
+    --placeholder-margin-vertical: var(--global-margin) default;
+    --placeholder-padding-vertical: var(--global-padding) default;
+    --placeholder-padding-horizontal: var(--global-padding) default;
+    --placeholder-background: var(--global-muted-background) default;
+}
+
+.dabi-placeholder {
+    margin-bottom: var(--placeholder-margin-vertical);
+    padding: var(--placeholder-padding-vertical) var(--placeholder-padding-horizontal);
+    background: var(--placeholder-background);
+    border: var(--placeholder-border-width) dashed var(--placeholder-border);
+}
+
+* + .dabi-placeholder{
+    margin-top: var(--placeholder-margin-vertical);
+}
+
+.dabi-placeholder > :last-child{
+    margin-bottom: 0;
+}

@@ -1,0 +1,15 @@
+.dabi-padding {
+    padding: var(--global-padding) !important;
+}
+
+.dabi-padding-small {
+    padding: var(--global-padding-small) !important;
+}
+
+.dabi-padding-medium {
+    padding: var(--global-padding-medium) !important;
+}
+
+.dabi-padding-large {
+    padding: var(--global-padding-large) !important;
+}

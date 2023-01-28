@@ -1,0 +1,115 @@
+:root {
+    --text-default-color: var(--global-color);
+    --text-white-color: var(--global-white);
+    --text-muted-color: var(--global-muted-color);
+    --text-emphasis-color: var(--global-emphasis-color);
+    --text-primary-color: var(--global-primary-background);
+    --text-secondary-color: var(--global-secondary-background);
+    --text-success-color: var(--global-success-background);
+    --text-warning-color: var(--global-warning-background);
+    --text-danger-color: var(--global-danger-background);
+}
+
+.dabi-text-muted {
+    color: var(--text-muted-color) !important;
+}
+
+.dabi-text-emphasis {
+    color: var(--text-emphasis-color) !important;
+}
+
+.dabi-text-primary {
+    color: var(--text-primary-color) !important;
+}
+
+.dabi-text-secondary {
+    color: var(--text-secondary-color) !important;
+}
+
+.dabi-text-success {
+    color: var(--text-success-color) !important;
+}
+
+.dabi-text-warning {
+    color: var(--text-warning-color) !important;
+}
+
+.dabi-text-danger {
+    color: var(--text-danger-color) !important;
+}
+
+.dabi-text-white {
+    color: var(--text-white-color) !important;
+}
+
+.dabi-text-default {
+    color: var(--text-default-color) !important;
+}
+
+.dabi-text-top {
+    vertical-align: top !important;
+}
+
+.dabi-text-middle {
+    vertical-align: middle !important;
+}
+
+.dabi-text-bottom {
+    vertical-align: bottom !important;
+}
+
+.dabi-text-baseline {
+    vertical-align: baseline !important;
+}
+
+.dabi-text-left {
+    text-align: left !important;
+}
+
+.dabi-text-right {
+    text-align: right !important;
+}
+
+.dabi-text-center {
+    text-align: center !important;
+}
+
+.dabi-text-justify {
+    text-align: justify !important;
+}
+
+.dabi-text-capitalize {
+    text-transform: capitalize !important;
+}
+
+.dabi-text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.dabi-text-lowercase {
+    text-transform: lowercase !important;
+}
+
+.dabi-text-italic {
+    font-style: italic !important;
+}
+
+.dabi-text-light {
+    font-weight: 300;
+}
+
+.dabi-text-normal {
+    font-weight: 400;
+}
+
+.dabi-text-bold {
+    font-weight: 700;
+}
+
+.dabi-text-lighter {
+    font-weight: lighter !important;
+}
+
+.dabi-text-bolder {
+    font-weight: bolder !important;
+}

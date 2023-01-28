@@ -1,0 +1,92 @@
+.dabi-input {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 56px;
+    font-weight: 500;
+}
+
+.dabi-input .dabi-input-label {
+    position: absolute;
+    bottom: -5px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+    transform-origin: 0 0;
+    transform: translate3d(0, -12px, 0);
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.dabi-input .bg {
+    position: absolute;
+    top: -150%;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-top-left-radius: var(--global-border-radius);
+    border-top-right-radius: var(--global-border-radius);
+}
+
+.dabi-input input, .dabi-input textarea {
+    width: 100%;
+    border: 0;
+    padding: 16px 12px 0 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000000;
+    outline: none;
+    border-top-left-radius: var(--global-border-radius);
+    border-top-right-radius: var(--global-border-radius);
+    transition: all 0.15s ease;
+}
+
+.dabi-input input:hover, .dabi-input textarea:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dabi-input input:focus, .dabi-input textarea:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 -2px 0 var(--global-primary-background);
+}
+
+.dabi-input input:focus+.dabi-input-label, .dabi-input textarea:focus+.dabi-input-label {
+    color: var(--global-primary-background);
+    transform: translate3d(0, -125%, 0) scale(0.75);
+}
+
+.dabi-input input:focus+.dabi-input-label+.dabi-input-bg, .dabi-input textarea:focus+.dabi-input-label+.dabi-input-bg {
+    transform: scale(1);
+    transition: all 0.1s ease;
+}
+
+.dabi-input.dabi-input-outlined input, .dabi-input.dabi-input-outlined textarea {
+    background-color: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+    border-radius: var(--global-border-radius);
+}
+
+.dabi-input.dabi-input-outlined input:hover, .dabi-input.dabi-input-outlined textarea:hover {
+    background-color: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+.dabi-input.dabi-input-outlined input:focus, .dabi-input.dabi-input-outlinedtextarea:focus {
+    background-color: inherit;
+    box-shadow: inset 0 0 0 2px var(--global-primary-background);
+}
+
+.dabi-input.dabi-input-outlined input:focus+.dabi-input-label, .dabi-input.dabi-input-outlined textarea:focus+.dabi-input-label {
+    transform: translate3d(0, -150%, 0) scale(0.75);
+    background-color: var(--global-muted-background);
+    padding: 0 10px;
+}

@@ -1,0 +1,212 @@
+:root {
+    --card-body-padding-horizontal: var(--global-padding);
+    --card-body-padding-vertical: var(--global-padding);
+
+    --card-body-padding-horizontal-l: var(--global-medium-padding);
+    --card-body-padding-vertical-l: var(--global-medium-padding);
+
+    --card-header-padding-horizontal: var(--global-padding);
+    --card-header-padding-vertical: round((var(--global-padding) * 0.5));
+
+    --card-header-padding-horizontal-l: var(--global-medium-padding);
+    --card-header-padding-vertical-l: round((var(--global-medium-padding) * 0.5));
+
+    --card-footer-padding-horizontal: var(--global-padding);
+    --card-footer-padding-vertical: calc(var(--global-padding) * 0.5);
+
+    --card-footer-padding-horizontal-l: var(--global-medium-padding);
+    --card-footer-padding-vertical-l: round((var(--global-medium-padding) * 0.5));
+
+    --card-title-font-size: var(--global-large-font-size);
+    --card-title-line-height: 1.4;
+
+    --card-hover-background: var(--global-muted-background);
+
+    --card-default-background: var(--global-muted-background);
+    --card-default-color: var(--global-color);
+    --card-default-title-color: var(--global-emphasis-color);
+    --card-default-hover-background: darken(var(--card-default-background), 5%);
+
+    --card-primary-background: var(--global-primary-background);
+    --card-primary-color: var(--global-inverse-color);
+    --card-primary-title-color: var(--card-primary-color);
+    --card-primary-hover-background: darken(var(--card-primary-background), 5%);
+    --card-primary-color-mode: light;
+
+    --card-secondary-background: var(--global-secondary-background);
+    --card-secondary-color: var(--global-inverse-color);
+    --card-secondary-title-color: var(--card-secondary-color);
+    --card-secondary-hover-background: darken(var(--card-secondary-background), 5%);
+    --card-secondary-color-mode: light;
+
+    --card-small-body-padding-horizontal: var(--global-margin);
+    --card-small-body-padding-vertical: var(--global-margin);
+    --card-small-header-padding-horizontal: var(--global-margin);
+    --card-small-header-padding-vertical: round(var(--global-margin) * 0.66667);
+    --card-small-footer-padding-horizontal: var(--global-margin);
+    --card-small-footer-padding-vertical: round((var(--global-margin) * 0.66667));
+
+    --card-large-body-padding-horizontal-l: var(--global-large-padding);
+    --card-large-body-padding-vertical-l: var(--global-large-padding);
+    --card-large-header-padding-horizontal-l: var(--global-large-padding);
+    --card-large-header-padding-vertical-l: round((var(--global-large-padding) * 0.5));
+    --card-large-footer-padding-horizontal-l: var(--global-large-padding);
+    --card-large-footer-padding-vertical-l: round((var(--global-large-padding) * 0.5));
+
+    --card-border-color: #E6E6E6;
+}
+
+.dabi-card {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: var(--global-border-radius);
+}
+
+.dabi-card-body {
+    display: flow-root;
+    padding: var(--card-body-padding-vertical) var(--card-body-padding-horizontal);
+}
+
+.dabi-card-header {
+    display: flow-root;
+    padding: var(--card-header-padding-vertical) var(--card-header-padding-horizontal);
+}
+
+.dabi-card-footer {
+    display: flow-root;
+    padding: var(--card-footer-padding-vertical) var(--card-footer-padding-horizontal);
+}
+
+.dabi-card-body> :last-child,
+.dabi-card-header> :last-child,
+.dabi-card-footer> :last-child {
+    margin-bottom: 0;
+}
+
+.dabi-card-title {
+    font-size: var(--card-title-font-size);
+    line-height: var(--card-title-line-height);
+}
+
+.dabi-card-hover:not(.dabi-card-default):not(.dabi-card-primary):not(.dabi-card-secondary):hover {
+    background-color: var(--card-hover-background);
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+/*
+ * Default
+ */
+
+.dabi-card-default {
+    background-color: var(--card-default-background);
+    color: var(--card-default-color);
+    box-shadow: var(--card-default-box-shadow);
+}
+
+.dabi-card-default .dabi-card-header{
+    border: var(--card-default-header-border-width) var(--card-default-header-border);
+}
+
+.dabi-card-default .dabi-card-title {
+    color: var(--card-default-title-color);
+}
+
+.dabi-card-default.dabi-card-hover:hover {
+    background-color: var(--card-default-hover-background);
+    box-shadow: var(--card-default-hover-box-shadow);
+}
+
+
+/*
+* Primary
+*/
+
+.dabi-card-primary {
+    background-color: var(--card-primary-background);
+    color: var(--card-primary-color);
+    box-shadow: var(--card-primary-box-shadow);
+}
+
+.dabi-card-primary .dabi-card-title {
+    color: var(--card-primary-title-color);
+}
+
+.dabi-card-primary.dabi-card-hover:hover {
+    background-color: var(--card-primary-hover-background);
+    box-shadow: var(--card-primary-hover-box-shadow);
+}
+
+/*
+* Secondary
+*/
+
+.dabi-card-secondary {
+    background-color: var(--card-secondary-background);
+    color: var(--card-secondary-color);
+    box-shadow: var(--card-secondary-box-shadow);
+}
+
+.dabi-card-secondary .dabi-card-title {
+    color: var(--card-secondary-title-color);
+}
+
+.dabi-card-secondary.dabi-card-hover:hover {
+    background-color: var(--card-secondary-hover-background);
+    box-shadow: var(--card-secondary-hover-box-shadow);
+}
+
+
+.dabi-card-small.dabi-card-body,
+.dabi-card-small .dabi-card-body {
+    padding: var(--card-small-body-padding-vertical) var(--card-small-body-padding-horizontal);
+}
+
+.dabi-card-small .dabi-card-header {
+    padding: var(--card-small-header-padding-vertical) var(--card-small-header-padding-horizontal);
+}
+
+.dabi-card-small .dabi-card-footer {
+    padding: var(--card-small-footer-padding-vertical) var(--card-small-footer-padding-horizontal);
+}
+
+.dabi-card.dabi-card-border{
+    border: 2px solid var(--card-border-color);
+}
+
+.dabi-card.dabi-card-no-shadow{
+    box-shadow: none;
+}
+
+
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+    .dabi-card-body {
+        padding: var(--card-body-padding-vertical-l) var(--card-body-padding-horizontal-l);
+    }
+
+    .dabi-card-header {
+        padding: var(--card-header-padding-vertical-l) var(--card-header-padding-horizontal-l);
+    }
+
+    .dabi-card-footer {
+        padding: var(--card-footer-padding-vertical-l) var(--card-footer-padding-horizontal-l);
+    }
+
+    .dabi-card-large.dabi-card-body,
+    .dabi-card-large .dabi-card-body {
+        padding: var(--card-large-body-padding-vertical-l) var(--card-large-body-padding-horizontal-l);
+    }
+
+    .dabi-card-large .dabi-card-header {
+        padding: var(--card-large-header-padding-vertical-l) var(--card-large-header-padding-horizontal-l);
+    }
+
+    .dabi-card-large .dabi-card-footer {
+        padding: var(--card-large-footer-padding-vertical-l) var(--card-large-footer-padding-horizontal-l);
+    }
+}
+
+.dabi-card.dabi-grow:hover{
+    scale: 1.1;
+}

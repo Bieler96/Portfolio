@@ -1,0 +1,295 @@
+:root {
+    --global-primary-background: #6F7FE9;
+    --placeholder-background: var(--global-muted-background);
+
+    --placeholder-border-width: var(--global-border-width);
+    --placeholder-border: var(--global-border);
+
+    --card-hover-background:                         var(--global-background);
+
+    --card-default-background:                       var(--global-background);
+    --card-default-hover-background:                 var(--card-default-background);
+
+    --card-primary-hover-background:                 var(--card-primary-background);
+
+    --card-secondary-hover-background:               var(--card-secondary-background);
+
+    --card-badge-border-radius:                      2px;
+    --card-badge-text-transform:                     uppercase;
+
+    --card-hover-box-shadow:                         var(--global-large-box-shadow);
+
+    --card-default-box-shadow:                       var(--global-medium-box-shadow);
+    --card-default-hover-box-shadow:                 var(--global-large-box-shadow);
+
+    --card-default-header-border-width:              var(--global-border-width);
+    --card-default-header-border:                    var(--global-border);
+
+    --card-default-footer-border-width:              var(--global-border-width);
+    --card-default-footer-border:                    var(--global-border);
+
+    --card-primary-box-shadow:                       var(--global-medium-box-shadow);
+    --card-primary-hover-box-shadow:                 var(--global-large-box-shadow);
+
+    --card-secondary-box-shadow:                     var(--global-medium-box-shadow);
+    --card-secondary-hover-box-shadow:               var(--global-large-box-shadow);
+}
+
+body{
+    background-color: var(--global-muted-background);
+}
+
+a{
+    color: black;
+}
+
+#wrapper-portfolio-card {
+    background-color: var(--global-white);
+    position: relative;
+    padding: 120px 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #wrapper-title {
+        padding: 80px 0;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    #wrapper-title {
+        padding: 80px 0;
+    }
+}
+
+.card-holder {
+    padding: 0 15px;
+    margin: 20px 0;
+}
+
+.portfolio-card {
+    min-height: 500px;
+    cursor: pointer;
+}
+
+.portfolio-card .thumbnail {
+    transition: all 0.28s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--global-border-radius);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-image: url(http://rainbowit.net/themes/imroz/wp-content/uploads/2021/12/pt-7-390x532.jpg);
+    background-color: var(--global-secondary-background);
+    backface-visibility: hidden;
+}
+
+.portfolio-card .thumbnail::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    display: block;
+    content: "";
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0), rgba(15, 15, 15, 0.75) 100%);
+}
+
+.portfolio-card:hover .thumbnail::before {
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0), var(--global-primary-background) 100%);
+}
+
+.portfolio-card:hover .thumbnail {
+    transform: scale(1.13) translateZ(0);
+}
+
+.portfolio-card .dabi-card-body {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    max-width: 100% !important;
+}
+
+.portfolio-card .dabi-card-body p {
+    margin-bottom: -20px;
+    font-size: 16px;
+}
+
+.portfolio-card .dabi-button {
+    transition: all 0.28s ease !important;
+}
+
+.portfolio-card:hover .dabi-button {
+    background-color: var(--global-primary-background) !important;
+    color: var(--global-white) !important;
+}
+
+#wrapper-call-to-action {
+    background-color: var(--global-primary-background);
+    position: relative;
+    padding: 120px 0;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #wrapper-call-to-action {
+        padding: 80px 0;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    #wrapper-call-to-action {
+        padding: 80px 0;
+    }
+}
+
+#wrapper-call-to-action .dabi-button:hover {
+    background-color: #ffffff !important;
+    color: var(--global-primary-background);
+}
+
+#wrapper-title {
+    background-color: var(--global-white);
+    position: relative;
+    padding: 120px 0;
+}
+
+#wrapper-title.colored{
+    background-color: var(--global-primary-background);
+}
+
+#wrapper-title.colored h2{
+    color: var(--global-white);
+}
+
+#wrapper-title.colored h3{
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.dabi-hero {
+    margin-bottom: 60px;
+    background-color: #000000;
+}
+
+.dabi-hero h1 {
+    display: inline-block;
+    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(120deg, #1C99FE 20.69%, #7644FF 50.19%, #FD4766 79.69%); */
+    background-color: var(--global-primary-background);
+    -webkit-background-clip: text;
+}
+
+.dabi-hero img{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: auto;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #wrapper-title {
+        padding: 80px 0;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    #wrapper-title {
+        padding: 80px 0;
+    }
+}
+
+nav {
+    background-color: var(--global-white);
+}
+
+nav .nav {
+    background: transparent;
+}
+
+#contact {
+    margin-top: 60px;
+    margin-bottom: 160px;
+}
+
+#contact .dabi-input {
+    margin: 20px;
+}
+
+#contact .dabi-input,
+#contact .dabi-input textarea {
+    height: auto;
+}
+
+#contact .dabi-input.dabi-input-outlined input:focus+.dabi-input-label,
+#contact .dabi-input.dabi-input-outlined textarea:focus+.dabi-input-label {
+    background-color: var(--global-white);
+}
+
+.dabi-input.dabi-input-outlined input:placeholder-shown::placeholder,
+.dabi-input.dabi-input-outlinedtextarea:placeholder-shown::placeholder{
+    color: transparent;
+}
+
+#contact .dabi-input input:not(:placeholder-shown)+.dabi-input-label{
+    color:transparent;
+}
+
+#contact .dabi-input input:focus+.dabi-input-label{
+    color: var(--global-primary-background);
+}
+
+#services {
+    margin-top: 60px;
+}
+
+#desc ul, #desc ul li{
+    color: var(--global-color);
+    list-style: circle;
+    margin-left: 10px;
+}
+
+.image-holder{
+    height: 250px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: var(--global-margin);
+}
+
+/* lightbox */
+#lightbox{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#lightbox #overlay{
+    z-index: 1000;
+    overflow: hidden;
+    background-color: #000000;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#lightbox img{
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 710px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}

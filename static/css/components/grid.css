@@ -1,0 +1,371 @@
+:root {
+    --grid-padding-horizontal: var(--global-padding);
+    --grid-padding-vertical: var(--grid-padding-horizontal);
+    --grid-padding-horizontal-l: var(--global-padding-medium);
+    --grid-padding-vertical-l: var(--grid-padding-horizontal-l);
+
+    --grid-padding-small-horizontal: var(--global-padding-small);
+    --grid-padding-small-vertical: var(--grid-padding-small-horizontal);
+
+    --grid-padding-medium-horizontal: var(--global-padding);
+    --grid-padding-medium-vertical: var(--grid-padding-medium-horizontal);
+
+    --grid-padding-large-horizontal: var(--global-padding-medium);
+    --grid-padding-large-vertical: var(--grid-padding-large-horizontal);
+    --grid-padding-large-horizontal-l: var(--global-padding-large);
+    --grid-padding-large-vertical-l: var(--grid-padding-large-horizontal-l);
+
+    --grid-divider-border-width: var(--global-border-width);
+    --grid-divider-border: var(--global-border);
+}
+
+.dabi-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dabi-grid>* {
+    margin: 0;
+}
+
+.dabi-grid>*> :last-child {
+    margin-bottom: 0;
+}
+
+/* ====== padding ====== */
+/* default */
+.dabi-grid {
+    margin-left: calc(var(--grid-padding-horizontal) * -1);
+}
+
+.dabi-grid>* {
+    padding-left: var(--grid-padding-horizontal);
+}
+
+.dabi-grid+.dabi-grid,
+.dabi-grid>.dabi-grid-margin,
+*+.dabi-grid-margin {
+    margin-top: var(--grid-padding-vertical);
+}
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+    .dabi-grid {
+        margin-left: calc(var(--grid-padding-horizontal-l) * -1);
+    }
+
+    .dabi-grid>* {
+        padding-left: var(--grid-padding-horizontal-l);
+    }
+
+    .dabi-grid+.dabi-grid,
+    .dabi-grid>.dabi-grid-margin,
+    *+.dabi-grid-margin {
+        margin-top: var(--grid-padding-vertical-l);
+    }
+}
+
+/* small */
+.dabi-grid-small,
+.dabi-grid-column-small {
+    margin-left: calc(var(--grid-padding-small-horizontal) * -1);
+}
+
+.dabi-grid-small>*,
+.dabi-grid-column-small>* {
+    padding-left: var(--grid-padding-small-horizontal);
+}
+
+.dabi-grid+.dabi-grid-small,
+.dabi-grid+.dabi-grid-row-small,
+.dabi-grid-small>.dabi-grid-margin,
+.dabi-grid-row-small>.dabi-grid-margin,
+*+.dabi-grid-margin-small {
+    margin-top: var(--grid-padding-small-vertical);
+}
+
+/* large */
+.dabi-grid-large,
+.dabi-grid-column-large {
+    margin-left: calc(var(--grid-padding-large-horizontal) * -1);
+}
+
+.dabi-grid-large>*,
+.dabi-grid-column-large>* {
+    padding-left: var(--grid-padding-large-horizontal);
+}
+
+.dabi-grid+.dabi-grid-large,
+.dabi-grid+.dabi-grid-row-large,
+.dabi-grid-large>.dabi-grid-margin,
+.dabi-grid-row-large>.dabi-grid-margin,
+*+.dabi-grid-margin-large {
+    margin-top: var(--grid-padding-large-vertical);
+}
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+
+    .dabi-grid-large,
+    .dabi-grid-column-large {
+        margin-left: calc(var(--grid-padding-large-horizontal-l) * -1);
+    }
+
+    .dabi-grid-large>*,
+    .dabi-grid-column-large>* {
+        padding-left: var(--grid-padding-large-horizontal-l);
+    }
+
+    .dabi-grid+.dabi-grid-large,
+    .dabi-grid+.dabi-grid-row-large,
+    .dabi-grid-large>.dabi-grid-margin,
+    .dabi-grid-row-large>.dabi-grid-margin,
+    *+.dabi-grid-margin-large {
+        margin-top: var(--grid-padding-large-vertical-l);
+    }
+}
+
+/* collapse */
+.dabi-grid-collapse,
+.dabi-grid-column-collapse {
+    margin-left: 0;
+}
+
+.dabi-grid-collapse>*,
+.dabi-grid-column-collapse>* {
+    padding-left: 0;
+}
+
+/* Vertical */
+.dabi-grid+.dabi-grid-collapse,
+.dabi-grid+.dabi-grid-row-collapse,
+.dabi-grid-collapse>.dabi-grid-margin,
+.dabi-grid-row-collapse>.dabi-grid-margin {
+    margin-top: 0;
+}
+
+/* ====== divider ====== */
+.dabi-grid-divider>* {
+    position: relative;
+}
+
+.dabi-grid-divider> :not(.dabi-first-column)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: var(--grid-divider-border-width) solid var(--grid-divider-border);
+}
+
+.dabi-grid-divider.dabi-grid-stack>.dabi-grid-margin::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: var(--grid-divider-border-width) solid var(--grid-divider-border);
+}
+
+/* default */
+.dabi-grid-divider {
+    margin-left: calc(var(--grid-padding-horizontal) * 2 * -1);
+}
+
+.dabi-grid-divider>* {
+    padding-left: calc(var(--grid-padding-horizontal) * 2);
+}
+
+.dabi-grid-divider> :not(.dabi-first-column)::before {
+    left: var(--grid-padding-horizontal);
+}
+
+.dabi-grid-divider.dabi-grid-stack>.dabi-grid-margin {
+    margin-top: calc(var(--grid-padding-vertical) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-vertical) * -1);
+    left: calc(var(--grid-padding-horizontal) * 2);
+}
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+    .dabi-grid-divider {
+        margin-left: calc(var(--grid-padding-horizontal-l) * 2 * -1);
+    }
+
+    .dabi-grid-divider>* {
+        padding-left: calc(var(--grid-padding-horizontal-l) * 2);
+    }
+
+    .dabi-grid-divider> :not(.dabi-first-column)::before {
+        left: var(--grid-padding-horizontal-l);
+    }
+
+    .dabi-grid-divider.dabi-grid-stack>.dabi-grid-margin {
+        margin-top: calc(var(--grid-padding-vertical-l) * 2 * -1);
+    }
+
+    .dabi-grid-divider.dabi-grid-stack>.dabi-grid-margin::before {
+        top: calc(var(--grid-padding-vertical-l) * -1);
+        left: calc(var(--grid-padding-horizontal-l) * 2);
+    }
+}
+
+/* small */
+.dabi-grid-divider.dabi-grid-small,
+.dabi-grid-divider.dabi-grid-column-small {
+    margin-left: calc(var(--grid-padding-small-horizontal) * 2 * -1);
+}
+
+.dabi-grid-divider.dabi-grid-small>*,
+.dabi-grid-divider.dabi-grid-column-small>* {
+    padding-left: calc(var(--grid-padding-small-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-small> :not(.dabi-first-column)::before,
+.dabi-grid-divider.dabi-grid-column-small> :not(.dabi-first-column)::before {
+    left: var(--grid-padding-small-horizontal);
+}
+
+.dabi-grid-divider.dabi-grid-small.dabi-grid-stack>.dabi-grid-margin,
+.dabi-grid-divider.dabi-grid-row-small.dabi-grid-stack>.dabi-grid-margin {
+    margin-top: calc(var(--grid-padding-small-vertical) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-small.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-small-vertical) * -1);
+    left: calc(var(--grid-padding-small-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-row-small.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-small-vertical) * -1);
+}
+
+.dabi-grid-divider.dabi-grid-column-small.dabi-grid-stack>.dabi-grid-margin::before {
+    left: calc(var(--grid-padding-small-horizontal) * 2);
+}
+
+/* medium */
+.dabi-grid-divider.dabi-grid-medium,
+.dabi-grid-divider.dabi-grid-column-medium {
+    margin-left: calc(var(--grid-padding-medium-horizontal) * 2 * -1);
+}
+
+.dabi-grid-divider.dabi-grid-medium>*,
+.dabi-grid-divider.dabi-grid-column-medium>* {
+    padding-left: calc(var(--grid-padding-medium-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-medium> :not(.dabi-first-column)::before,
+.dabi-grid-divider.dabi-grid-column-medium> :not(.dabi-first-column)::before {
+    left: var(--grid-padding-medium-horizontal);
+}
+
+/* Vertical */
+.dabi-grid-divider.dabi-grid-medium.dabi-grid-stack>.dabi-grid-margin,
+.dabi-grid-divider.dabi-grid-row-medium.dabi-grid-stack>.dabi-grid-margin {
+    margin-top: calc(var(--grid-padding-medium-vertical) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-medium.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-medium-vertical) * -1);
+    left: calc(var(--grid-padding-medium-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-row-medium.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-medium-vertical) * -1);
+}
+
+.dabi-grid-divider.dabi-grid-column-medium.dabi-grid-stack>.dabi-grid-margin::before {
+    left: calc(var(--grid-padding-medium-horizontal) * 2);
+}
+
+/* large */
+.dabi-grid-divider.dabi-grid-large,
+.dabi-grid-divider.dabi-grid-column-large {
+    margin-left: calc(var(--grid-padding-large-horizontal) * 2 * -1);
+}
+
+.dabi-grid-divider.dabi-grid-large>*,
+.dabi-grid-divider.dabi-grid-column-large>* {
+    padding-left: calc(var(--grid-padding-large-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-large> :not(.dabi-first-column)::before,
+.dabi-grid-divider.dabi-grid-column-large> :not(.dabi-first-column)::before {
+    left: var(--grid-padding-large-horizontal);
+}
+
+.dabi-grid-divider.dabi-grid-large.dabi-grid-stack>.dabi-grid-margin,
+.dabi-grid-divider.dabi-grid-row-large.dabi-grid-stack>.dabi-grid-margin {
+    margin-top: calc(var(--grid-padding-large-vertical) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-large.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-large-vertical) * -1);
+    left: calc(var(--grid-padding-large-horizontal) * 2);
+}
+
+.dabi-grid-divider.dabi-grid-row-large.dabi-grid-stack>.dabi-grid-margin::before {
+    top: calc(var(--grid-padding-large-vertical) * -1);
+}
+
+.dabi-grid-divider.dabi-grid-column-large.dabi-grid-stack>.dabi-grid-margin::before {
+    left: calc(var(--grid-padding-large-horizontal) * 2);
+}
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+
+    .dabi-grid-divider.dabi-grid-large,
+    .dabi-grid-divider.dabi-grid-column-large {
+        margin-left: calc(var(--grid-padding-large-horizontal-l) * 2 * -1);
+    }
+
+    .dabi-grid-divider.dabi-grid-large>*,
+    .dabi-grid-divider.dabi-grid-column-large>* {
+        padding-left: calc(var(--grid-padding-large-horizontal-l) * 2);
+    }
+
+    .dabi-grid-divider.dabi-grid-large> :not(.dabi-first-column)::before,
+    .dabi-grid-divider.dabi-grid-column-large> :not(.dabi-first-column)::before {
+        left: var(--grid-padding-large-horizontal-l);
+    }
+
+    .dabi-grid-divider.dabi-grid-large.dabi-grid-stack>.dabi-grid-margin,
+    .dabi-grid-divider.dabi-grid-row-large.dabi-grid-stack>.dabi-grid-margin {
+        margin-top: calc(var(--grid-padding-large-vertical-l) * 2);
+    }
+
+    .dabi-grid-divider.dabi-grid-large.dabi-grid-stack>.dabi-grid-margin::before {
+        top: calc(var(--grid-padding-large-vertical-l) * -1);
+        left: calc(var(--grid-padding-large-horizontal-l) * 2);
+    }
+
+    .dabi-grid-divider.dabi-grid-row-large.dabi-grid-stack>.dabi-grid-margin::before {
+        top: calc(var(--grid-padding-large-vertical-l) * -1);
+    }
+
+    .dabi-grid-divider.dabi-grid-column-large.dabi-grid-stack>.dabi-grid-margin::before {
+        left: calc(var(--grid-padding-large-horizontal-l) * 2);
+    }
+}
+
+.dabi-grid-match>*,
+.dabi-grid-item-match {
+    display: flex;
+    /* 1 */
+    flex-wrap: wrap;
+}
+
+.dabi-grid-match>*> :not([class*='dabi-width']),
+.dabi-grid-item-match> :not([class*='dabi-width']) {
+    /* 2 */
+    box-sizing: border-box;
+    width: 100%;
+    /* 3 */
+    flex: auto;
+}

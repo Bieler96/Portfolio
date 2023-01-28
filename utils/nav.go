@@ -9,7 +9,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// data structure for a nav entry
+/*
+NavEntry represents a navigation entry in the navigation
+It contains: ID, name, link
+*/
 type NavEntry struct {
 	ID   primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Name string             `bson:"name,omitempty" json:"name,omitempty"`
@@ -19,7 +22,11 @@ type NavEntry struct {
 // nav entries in mongo collection
 var DB_NavEntries *mongo.Collection
 
-// initialize data for the nav into the mongodb
+/*
+InitNavMongo initializes the navigation entries in MongoDB by inserting a set of predefined entries
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func InitNavMongo(ctx context.Context) {
 	entries := []interface{}{
 		bson.D{{"name", "Über Mich"}, {"link", "http://localhost:8080/#about"}},
@@ -34,12 +41,23 @@ func InitNavMongo(ctx context.Context) {
 	}
 }
 
-// removes all nav entries in the mongodb
+/*
+ResetMongoNav resets the "NavEntries" MongoDB collection by dropping it
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func ResetMongoNav(ctx context.Context) {
 	DB_NavEntries.Drop(ctx)
 }
 
-// get all nav entries
+/*
+GetNavEntries gets all the navigation entries from the MongoDB
+
+@param ctx context.Context : the context for the MongoDB operation
+
+@return []NavEntry the nav entries
+@return error if some error occure
+*/
 func GetNavEntries(ctx context.Context) ([]NavEntry, error) {
 	cursor, err := DB_NavEntries.Find(ctx, bson.D{})
 

@@ -11,6 +11,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+/*
+main is the entry point of the whole project
+*/
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
@@ -35,21 +38,33 @@ func main() {
 	web.Webserver(ctx)
 }
 
-// create the collections for the database
+/*
+createDB sets up the collections
+
+@param client mongo.Client : connected to the MongoDB
+*/
 func createDB(client mongo.Client) {
 	utils.DB_NavEntries = client.Database("db").Collection("nav")
 	utils.DB_Projects = client.Database("db").Collection("projects")
 	utils.DB_Services = client.Database("db").Collection("services")
 }
 
-// reseted the database collections
+/*
+resetDB resets the collections
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func resetDB(ctx context.Context) {
 	utils.ResetMongoNav(ctx)
 	utils.ResetMongoProject(ctx)
 	utils.ResetMongoService(ctx)
 }
 
-// fill the collections with initial data
+/*
+initDB initializes the collections
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func initDB(ctx context.Context) {
 	utils.InitNavMongo(ctx)
 	utils.InitProjectMongo(ctx)

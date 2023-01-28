@@ -11,7 +11,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// data structure of a project
+/*
+Project represents a project
+It contains: ID, slug, title, year, type, client, shortdescription, description, cover, images
+*/
 type Project struct {
 	ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Slug             string             `bson:"slug,omitempty" json:"slug,omitempty"`
@@ -23,13 +26,16 @@ type Project struct {
 	Description      []byte             `bson:"desc,omitempty" json:"desc,omitempty"`
 	Cover            string             `bson:"cover,omitempty" json:"cover,omitempty"`
 	Images           []string           `bson:"images,omitempty" json:"images,omitempty"`
-	// Description      template.HTML      `bson:"desc,omitempty" json:"desc,omitempty"`
 }
 
 // projects in mongo collection
 var DB_Projects *mongo.Collection
 
-// initialize data for the projects into the mongodb
+/*
+InitProjectMongo initialized the project entries in MongoDB by inserting predefined entries
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func InitProjectMongo(ctx context.Context) {
 	// bluetoothtrackerImages := []string{""}
 	tankappImages := []string{"tankapp1.jpg"}
@@ -66,12 +72,23 @@ func InitProjectMongo(ctx context.Context) {
 	}
 }
 
-// removes all projects in the mongodb
+/*
+ResetMongoProject reset the "Projects" MongoDB collection by dropping it
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func ResetMongoProject(ctx context.Context) {
 	DB_Projects.Drop(ctx)
 }
 
-// get all projects
+/*
+GetProjects gets all the projects from the MongoDB
+
+@param ctx context.Context : the context for the MongoDB operation
+
+@return []Project the projects
+@return error if some error occure
+*/
 func GetProjects(ctx context.Context) ([]Project, error) {
 	opts := options.Find().SetSort(bson.D{{"year", -1}})
 	cursor, err := DB_Projects.Find(ctx, bson.D{}, opts)
@@ -103,7 +120,15 @@ func GetProjects(ctx context.Context) ([]Project, error) {
 	return projects, err
 }
 
-// get a project by slug
+/*
+GetProjectById gets the project by the given slug
+
+@param ctx context.Context : the context for the MongoDB operation
+@param slug string: the slug of the searched entry
+
+@return Project the searched project
+@return error if some error occure
+*/
 func GetProjectById(ctx context.Context, slug string) (Project, error) {
 	//project
 	var project Project
@@ -126,7 +151,13 @@ func GetProjectById(ctx context.Context, slug string) (Project, error) {
 	return project, err
 }
 
-//get []byte from the markdown file from the specified project by it´s slug
+/*
+getMarkdown read in a markdown file with the given slug
+
+@param slug string: the slug of the searched entry
+
+@return []byte : the content of the specified markdown file
+*/
 func getMarkdown(slug string) []byte {
 	b, errT := ioutil.ReadFile("./static/description/" + slug + ".md")
 	if errT != nil {

@@ -15,7 +15,19 @@ var tmpl = template.Must(template.ParseGlob("template/*"))
 
 var ctx context.Context
 
-// starts the webserver
+/*
+Webserver starts a web server on http://localhost:8080. It sets up handlers for the following routes
+"/" : index
+"/show" : show
+"/impressum" : impressum
+
+It also sets up file servers for handling requests for files in the following directories
+"./static/css" : access through route "/css/"
+"./static/js" : access through route "/js/"
+"./static/images" : access through route "/images/"
+
+@param ctxx context.Context : the context for the web server
+*/
 func Webserver(ctxx context.Context) {
 	ctx = ctxx
 	log.Println("Server started on http://localhost:8080")
@@ -31,7 +43,12 @@ func Webserver(ctxx context.Context) {
 	http.ListenAndServe(":8080", nil)
 }
 
-// shows the index page
+/*
+index handles requests to the "/" route and renders the "Index" template
+
+@param w http.ResponseWriter : the response writer to write the template
+@param r *http.Request : the request object
+*/
 func index(w http.ResponseWriter, r *http.Request) {
 	//projects
 	projects, err := utils.GetProjects(ctx)
@@ -64,8 +81,12 @@ func index(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "Index", data)
 }
 
-// shows the selected project in detail
-func show(w http.ResponseWriter, r *http.Request) {
+/*
+show handles requests to the "/show" route and renders the "Project" template
+
+@param w http.ResponseWriter : the response writer to write the template
+@param r *http.Request : the request object
+*/func show(w http.ResponseWriter, r *http.Request) {
 	//project slug
 	projectSlack := r.URL.Query().Get("slug")
 
@@ -97,7 +118,12 @@ func show(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "Project", data)
 }
 
-// shows the impressum page
+/*
+impressum handles requests to the "/impressum" route and renders the "Impressum" template
+
+@param w http.ResponseWriter : the response writer to write the template
+@param r *http.Request : the request object
+*/
 func impressum(w http.ResponseWriter, r *http.Request) {
 	//nav entries
 	navEntries, err := utils.GetNavEntries(ctx)

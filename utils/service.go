@@ -9,7 +9,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// data structure of a service
+/*
+Service represent activities I like to do
+It contains: ID, title, description,icon
+*/
 type Service struct {
 	ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Title       string             `bson:"title,omitempty" json:"title,omitempty"`
@@ -20,7 +23,11 @@ type Service struct {
 // services in mongo collection
 var DB_Services *mongo.Collection
 
-// initialize data for the services into the mongodb
+/*
+InitServiceMongo initialized the service entries in MongoDB by inserting predefined entries
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func InitServiceMongo(ctx context.Context) {
 	entries := []interface{}{
 		bson.D{{"title", "UI / UX"}, {"desc", "Nicht nur das gestalten von User Interfaces sondern auch das Testen der Useability."}, {"icon", ""}},
@@ -35,12 +42,23 @@ func InitServiceMongo(ctx context.Context) {
 	}
 }
 
-// removes all services in the mongodb
+/*
+ResetMongoService reset the "Services" MongoDB collection by dropping it
+
+@param ctx context.Context : the context for the MongoDB operation
+*/
 func ResetMongoService(ctx context.Context) {
 	DB_Services.Drop(ctx)
 }
 
-// get all services
+/*
+GetServices gets all the services from the MongoDB
+
+@param ctx context.Context : the context for the MongoDB operation
+
+@return []Service the services
+@return error if some error occure
+*/
 func GetServices(ctx context.Context) ([]Service, error) {
 	cursor, err := DB_Services.Find(ctx, bson.D{})
 

@@ -1,0 +1,12 @@
+{{define "Services"}}
+<!-- <section class="dabi-margin-auto" style="margin-top: 128px;width: 940px;"> -->
+<div class="dabi-flex dabi-text-center" id="services">
+    {{range .Services}}
+    <div class="dabi-card dabi-card-body dabi-flex-1">
+        <h3 class="dabi-card-title">{{.Title}}</h3>
+        <p class="dabi-margin-top dabi-text-muted">{{.Description}}</p>
+    </div>
+    {{end}}
+</div>
+<!-- </section> -->
+{{end}}

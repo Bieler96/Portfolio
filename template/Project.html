@@ -1,0 +1,73 @@
+{{ define "Project" }}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Bieler</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/custom.js"></script>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        {{template "Nav".}}
+        <div id="wrapper-title" class="colored">
+            <div class="dabi-container dabi-text-center">
+                <h2>Projekt: {{.Project.Title}}</h2>
+                <h3>{{.Project.ShortDescription}}</h3>
+            </div>
+        </div>
+        <div class="dabi-margin-top dabi-margin-bottom">
+            <div class="dabi-container">
+                <div
+                    class="dabi-grid dabi-grid-stack dabi-child-width-expand-s dabi-child-width-1-2-s dabi-child-width-1-3-m dabi-margin-top">
+                    <div>
+                        <div class="dabi-card dabi-card-default dabi-padding dabi-text-center">
+                            <h4>Veröffentlicht</h4>
+                            <h3>{{.Project.Year}}</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dabi-card dabi-card-default dabi-padding dabi-text-center">
+                            <h4>Typ</h4>
+                            <h3>{{.Project.Type}}</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dabi-card dabi-card-default dabi-padding dabi-text-center">
+                            <h4>Client</h4>
+                            <h3>{{.Project.Client}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dabi-container" id="desc">
+            <div class="dabi-card dabi-card-default dabi-padding">
+                {{.Content}}
+            </div>
+        </div>
+        <div class="dabi-margin-top">
+            <div class="dabi-container">
+                <div class="dabi-grid dabi-child-width-1-2-s dabi-child-width-1-3-m">
+                    {{ range .Project.Images }}
+                    <div class="image-holder dabi-flex dabi-flex-center" onclick="OpenLightbox('images/{{.}}')">
+                        <img src="images/{{.}}">
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        <div class="dabi-container dabi-card dabi-card-default dabi-padding" id="contact">
+            {{template "Contact".}}
+        </div>
+        {{template "Footer".}}
+    </div>
+    {{template "Lightbox"}}
+</body>
+</html>
+{{ end }}

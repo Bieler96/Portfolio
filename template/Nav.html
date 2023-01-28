@@ -1,0 +1,12 @@
+{{define "Nav"}}
+<nav>
+    <div class="nav dabi-container">
+        <a href="http://localhost:8080" class="brand">David Bieler</a>
+        <div class="menu">
+            {{range .Nav}}
+                <a href="{{.Link}}" class="menu-item">{{.Name}}</a>
+            {{end}}
+        </div>
+    </div>
+</nav>
+{{end}}

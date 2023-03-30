@@ -19,7 +19,7 @@ func main() {
 	defer cancel()
 
 	// connection
-	opt := options.Client().ApplyURI("mongodb://root:rootpassword@localhost:27017")
+	opt := options.Client().ApplyURI("mongodb+srv://hsharz:b3E5VUb!Uy!QSPj@portfoliodb.dyj9e7d.mongodb.net/?retryWrites=true&w=majority")
 	client, err := mongo.Connect(ctx, opt)
 
 	if err != nil {

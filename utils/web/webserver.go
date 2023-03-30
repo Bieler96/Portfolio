@@ -5,6 +5,10 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
+	"os/exec"
+	"runtime"
+	"time"
 
 	"github.com/Bieler96/Portfolio/utils"
 	"github.com/russross/blackfriday/v2"
@@ -40,7 +44,35 @@ func Webserver(ctxx context.Context) {
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./static/js"))))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("./static/images"))))
 
+	go func() {
+		<-time.After(100 * time.Millisecond)
+		HandleOpenBrowser()
+	}()
+
 	http.ListenAndServe(":8080", nil)
+}
+
+func HandleOpenBrowser() {
+	url := "http://localhost:8080"
+
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("cmd", "/c", "start", url)
+		runCmd(cmd)
+	} else if runtime.GOOS == "darwin" {
+		cmd := exec.Command("open", url)
+		runCmd(cmd)
+	} else if runtime.GOOS == "linux" {
+		cmd := exec.Command("xdg-open", url)
+		runCmd(cmd)
+	}
+}
+
+func runCmd(cmd *exec.Cmd) {
+	err := cmd.Start()
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
 }
 
 /*
